@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GridMove : MonoBehaviour {
-
+    BoxCollider2D boxCollider;
     private float moveSpeed = 3f;
     private float gridSize = 1f;
     private enum Orientation
@@ -26,12 +26,14 @@ public class GridMove : MonoBehaviour {
 
     public void Start()
     {
+        boxCollider = gameObject.GetComponent<BoxCollider2D>();
         bodySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
     public void Update()
     {
         if (!isMoving)
         {
+            boxCollider.enabled = false;
             input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
             if(input.x < 0)
             {
@@ -57,6 +59,7 @@ public class GridMove : MonoBehaviour {
             {
                 AttemptMove(input);
             }
+            boxCollider.enabled = true;
         }
     }
 
