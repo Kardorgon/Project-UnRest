@@ -13,7 +13,7 @@ public class PlayerBehaviour : MonoBehaviour {
     //bool clickedX = true;
     BoxCollider2D boxCollider;
     //interractRadius będzie inny dla knighta, archera, maga itp
-    int interractRadius = 1;
+    public int interractRadius = 1;
     
     // Use this for initialization
     void Start() {
@@ -73,7 +73,7 @@ public class PlayerBehaviour : MonoBehaviour {
             Debug.DrawRay(transform.position, direction, Color.red);
             //mamy hit wszystkich obiektow ktore nie sa na layer w odleglosci 1 kratki
             //distance = tu dystans jaki bedziemy miec do interakcji z przedmiotem. Zamienic z interractRadius
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1, ~layer);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, interractRadius, ~layer);
 
             if (hit)
             {

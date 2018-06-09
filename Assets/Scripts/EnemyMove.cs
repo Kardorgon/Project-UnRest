@@ -25,7 +25,6 @@ public class EnemyMove : MonoBehaviour {
     public LayerMask blockingLayer;
     public SpriteRenderer bodySpriteRenderer;
     public GameObject player;
-    public float playerDetectionRange = 2f;
 
     public enum State
     {
@@ -87,6 +86,7 @@ public class EnemyMove : MonoBehaviour {
         }
         else if(state == State.ATTACK)
         {
+            FaceTarget();
             print("Atakuje go");
         }
     }
@@ -141,5 +141,26 @@ public class EnemyMove : MonoBehaviour {
         isMoving = false;
         moveAllowed = 1f;
         yield return 0;
+    }
+    public void FaceTarget()
+    {
+        Vector2 direction = (PlayerManager.instance.player.transform.position - transform.position).normalized;
+        print(direction);
+        if(direction.x >= 0.6 && direction.x <= 1 && direction.y >= 0.6 && direction.y <= 0.8)
+        {
+            bodySpriteRenderer.flipX = true;
+            print("a obrocenie");
+        }
+        else if ((direction.x >= -1 && direction.x <= -0.1) || (direction.y <= 1 && direction.y >= 0.1))
+        {
+            bodySpriteRenderer.flipX = false;
+            print("b obrocenie");
+        }
+        else
+        {
+            bodySpriteRenderer.flipX = true;
+            print("c obrocenie");
+        }
+
     }
 }

@@ -38,6 +38,8 @@ GameObject:
   - component: {fileID: 61908872678121182}
   - component: {fileID: 114191385133736150}
   - component: {fileID: 114026517597889150}
+  - component: {fileID: 114649759968815528}
+  - component: {fileID: 114587812010627538}
   m_Layer: 8
   m_Name: Rat
   m_TagString: Enemy
@@ -51,13 +53,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1129287051845396}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalRotation: {x: 0.091371804, y: 0.09534047, z: -0.26407683, w: 0.95541865}
+  m_LocalPosition: {x: 0.4, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4279938318472394}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 13, y: 7.9, z: -30}
 --- !u!4 &4279938318472394
 Transform:
   m_ObjectHideFlags: 1
@@ -109,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  lookRadius: 4
 --- !u!114 &114191385133736150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,8 +129,35 @@ MonoBehaviour:
     m_Bits: 256
   bodySpriteRenderer: {fileID: 0}
   player: {fileID: 0}
-  playerDetectionRange: 2
   state: 0
+--- !u!114 &114587812010627538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1387497375034740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01f1073e4db80f5419e00c08dcb6568f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  damage:
+    baseValue: 0
+  armor:
+    baseValue: 0
+--- !u!114 &114649759968815528
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1387497375034740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a551af07248af469baa012786cd083, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
 --- !u!212 &212213218411446098
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -162,7 +192,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: e6848f5deec672a41951dbced12a59c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
