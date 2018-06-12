@@ -21,9 +21,11 @@ GameObject:
   - component: {fileID: 4216151574108134}
   - component: {fileID: 114508553035155454}
   - component: {fileID: 61095442622505868}
+  - component: {fileID: 114812752341980202}
   - component: {fileID: 114073759912679858}
   - component: {fileID: 114994699394593110}
   - component: {fileID: 50209616836841270}
+  - component: {fileID: 114646735704631364}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -85,26 +87,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1990497736135200}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.32664075, y: -0.13529898, z: -0.2951603, w: 0.8876263}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4216151574108134}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: -30, z: -45}
 --- !u!4 &4612844171722754
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1643735639385056}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0}
+  m_LocalRotation: {x: 0.091371804, y: 0.09534047, z: -0.26407683, w: 0.95541865}
+  m_LocalPosition: {x: 0.4, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4216151574108134}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 13, y: 7.9, z: -30}
 --- !u!20 &20360029196629944
 Camera:
   m_ObjectHideFlags: 1
@@ -221,6 +223,35 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   bodySpriteRenderer: {fileID: 0}
+--- !u!114 &114646735704631364
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061869470728180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a686b02deff2b854fafa8967351feb11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  damage:
+    baseValue: 0
+  armor:
+    baseValue: 0
+--- !u!114 &114812752341980202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1061869470728180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3676b8f5c88a244919e0b84ce29fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  attackDelay: 0.6
 --- !u!114 &114994699394593110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -236,6 +267,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   focus: {fileID: 0}
+  interractRadius: 1
 --- !u!212 &212286763487119212
 SpriteRenderer:
   m_ObjectHideFlags: 1

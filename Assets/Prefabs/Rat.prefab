@@ -36,6 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4279938318472394}
   - component: {fileID: 61908872678121182}
+  - component: {fileID: 114283558782979522}
   - component: {fileID: 114191385133736150}
   - component: {fileID: 114026517597889150}
   - component: {fileID: 114649759968815528}
@@ -67,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1387497375034740}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -7, z: 0}
+  m_LocalPosition: {x: 5, y: -5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4262281199895626}
@@ -130,6 +131,19 @@ MonoBehaviour:
   bodySpriteRenderer: {fileID: 0}
   player: {fileID: 0}
   state: 0
+--- !u!114 &114283558782979522
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1387497375034740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3676b8f5c88a244919e0b84ce29fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackSpeed: 1
+  attackDelay: 0.6
 --- !u!114 &114587812010627538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -141,11 +155,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01f1073e4db80f5419e00c08dcb6568f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 6
   damage:
-    baseValue: 0
+    baseValue: 3
   armor:
-    baseValue: 0
+    baseValue: 1
 --- !u!114 &114649759968815528
 MonoBehaviour:
   m_ObjectHideFlags: 1

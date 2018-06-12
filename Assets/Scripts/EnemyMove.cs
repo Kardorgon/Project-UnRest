@@ -24,7 +24,6 @@ public class EnemyMove : MonoBehaviour {
 
     public LayerMask blockingLayer;
     public SpriteRenderer bodySpriteRenderer;
-    public GameObject player;
 
     public enum State
     {
@@ -33,13 +32,16 @@ public class EnemyMove : MonoBehaviour {
         ATTACK
     }
     public State state;
+    CharacterCombat combat;
+    Transform target;
     public void Start()
     {
         state = EnemyMove.State.PATROL;
         boxCollider = gameObject.GetComponent<BoxCollider2D>();
         bodySpriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        player = GameObject.FindGameObjectWithTag("Player");
         state = State.PATROL;
+        combat = GetComponent<CharacterCombat>();
+        target = PlayerManager.instance.player.transform;
     }
     public void Update()
     {
@@ -87,7 +89,14 @@ public class EnemyMove : MonoBehaviour {
         else if(state == State.ATTACK)
         {
             FaceTarget();
+            
             print("Atakuje go");
+            CharacterStats targetStats = target.GetComponent<CharacterStats>();
+            if(targetStats != null)
+            {
+                combat.Attack(targetStats);
+            }
+
         }
     }
 

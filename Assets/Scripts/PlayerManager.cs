@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 //script created as a singleton to give enemy a reference to a player
 //will work only because we do not spawn player
 public class PlayerManager : MonoBehaviour {
@@ -21,4 +22,11 @@ public class PlayerManager : MonoBehaviour {
     }
     #endregion
     public GameObject player;
+
+
+
+    public void KillPlayer()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

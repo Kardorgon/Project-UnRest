@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour {
                 return false;
             }
             items.Add(item);
-            //if to make sure we have some method subsribed, in not, we would get error without if statement
+            //if to make sure we have some method subsribed, if not, we would get error without if statement
             if(onItemChangedCallBack != null)
                 onItemChangedCallBack.Invoke();
         }
