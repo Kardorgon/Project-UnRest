@@ -6,8 +6,6 @@ using UnityEngine.EventSystems;
 
 public class PlayerBehaviour : MonoBehaviour {
 
-    private Attack attack;
-
     public LayerMask layer;
     public Interactable focus;
     //bool clickedX = true;
@@ -18,7 +16,7 @@ public class PlayerBehaviour : MonoBehaviour {
     // Use this for initialization
     void Start() {
         boxCollider = gameObject.GetComponent<BoxCollider2D>();
-        attack = GetComponent<Attack>();
+        
     }
 
     // Update is called once per frame
@@ -82,15 +80,6 @@ public class PlayerBehaviour : MonoBehaviour {
                 {
                     SetFocus(interactable);
                 }
-                /*print(hit.collider.name);
-                if(hit.collider.tag == "DestructableObstacle")
-                {
-                    attack.AttackDestructableObstacle(hit);
-                }
-                else if(hit.collider.tag == "Enemy")
-                {
-                    attack.AttackEnemy(hit);
-                }*/
             }
             else
             {

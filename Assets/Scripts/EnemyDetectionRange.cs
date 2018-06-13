@@ -32,7 +32,7 @@ public class EnemyDetectionRange : MonoBehaviour {
         if (distance <= attackingDistance)
         {
             enemyMove.state = EnemyMove.State.ATTACK;
-            attackingDistance = 2f;
+            attackingDistance = 1.6f;
         }
         else if (distance <= lookRadius)
         {
@@ -46,11 +46,12 @@ public class EnemyDetectionRange : MonoBehaviour {
 
     public void OnDrawGizmos()
     {
-        if(enemyMove.state == EnemyMove.State.CHASE)
+        if (enemyMove.state == EnemyMove.State.CHASE)
         {
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireSphere(transform.position, lookRadius);
-        }else if(enemyMove.state == EnemyMove.State.ATTACK)
+        }
+        else if (enemyMove.state == EnemyMove.State.ATTACK)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(transform.position, attackingDistance);
@@ -58,7 +59,7 @@ public class EnemyDetectionRange : MonoBehaviour {
         else
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(transform.position, lookRadius +1);
+            Gizmos.DrawWireSphere(transform.position, lookRadius + 1);
         }
 
     }

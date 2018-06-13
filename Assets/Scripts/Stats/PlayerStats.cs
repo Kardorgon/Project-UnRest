@@ -16,19 +16,36 @@ public class PlayerStats : CharacterStats {
         {
             armor.AddModifier(newItem.armorModifier);
             damage.AddModifier(newItem.damageModifier);
+            health.AddModifier(newItem.healthModifier);
         }
         if(oldItem != null)
         {
             armor.RemoveModifier(oldItem.armorModifier);
             damage.RemoveModifier(oldItem.damageModifier);
+            maxHealth -= oldItem.healthModifier;
+            health.RemoveModifier(oldItem.healthModifier);
         }
+        maxHealth = maxHealthBaseValue;
+        HealthChange(health.GetValue());
+        
 
+    }
+
+    public void HealthChange(int equipmentHealthModifiers)
+    {
+        maxHealth += equipmentHealthModifiers;
+    }
+
+    public void DrinkPotion(int potionHealthModifier, int potionDamageModifier)
+    {
+        
     }
 
     public override void Die()
     {
         base.Die();
         // kill the player in some way
+        PlayerManager.instance.KillPlayer();
         
     }
 }

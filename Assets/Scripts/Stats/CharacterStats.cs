@@ -1,22 +1,27 @@
 ﻿using UnityEngine;
 
 public class CharacterStats : MonoBehaviour {
-    public int maxHealth = 100;
+    //public int maxHealth = 100;
     //this means any other class will be able to get this value but not set it
-    public int currentHealth { get; private set; }
+    //public int currentHealth { get; set; }
     public Stat damage;
     public Stat armor;
+    public Stat health;
+
+    public int currentHealth;
+    public int maxHealth = 100;
+    public int maxHealthBaseValue;
 
     public void Awake()
     {
         currentHealth = maxHealth;
+        maxHealthBaseValue = maxHealth;
     }
-
     public void Update()
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            TakeDamage(10);
+           
         }
     }
     public void TakeDamage(int damage)
