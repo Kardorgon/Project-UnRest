@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PlayerStats : CharacterStats {
 
-	// Use this for initialization
-	void Start () {
+    public delegate void OnHealthChange();
+    public OnHealthChange onHealthHasChanged;
+
+    // Use this for initialization
+    void Start () {
         //everytime this method gets called we add or remove modifiers based on the equipmentchange
         EquipmentManager.instance.onEquipmentChange += OnEquipmentChanged;
 
@@ -27,7 +30,11 @@ public class PlayerStats : CharacterStats {
         }
         maxHealth = maxHealthBaseValue;
         HealthChange(health.GetValue());
-        
+        if(onHealthHasChanged != null)
+        {
+            onHealthHasChanged.Invoke();
+        }
+        print("onHealthHasChanged" + onHealthHasChanged);
 
     }
 

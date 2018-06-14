@@ -11,6 +11,7 @@ public class CharacterStats : MonoBehaviour {
     public int currentHealth;
     public int maxHealth = 100;
     public int maxHealthBaseValue;
+    public int hitRollMin = 4;
 
     public void Awake()
     {

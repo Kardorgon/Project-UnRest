@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+//this class is tellign us how we interact with enemy
 [RequireComponent(typeof(CharacterStats))]
 public class Enemy : Interactable {
     PlayerManager playerManager;

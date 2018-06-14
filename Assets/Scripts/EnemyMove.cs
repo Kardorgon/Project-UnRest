@@ -140,7 +140,7 @@ public class EnemyMove : MonoBehaviour {
         {
             FaceTarget();
             
-            print("Atakuje go");
+            //print("Atakuje go");
             CharacterStats targetStats = target.GetComponent<CharacterStats>();
             if(targetStats != null)
             {
@@ -231,17 +231,17 @@ public class EnemyMove : MonoBehaviour {
         if(direction.x >= 0.6 && direction.x <= 1 && direction.y >= 0.6 && direction.y <= 0.8)
         {
             bodySpriteRenderer.flipX = true;
-            print("a obrocenie");
+            //print("a obrocenie");
         }
         else if ((direction.x >= -1 && direction.x <= -0.1) || (direction.y <= 1 && direction.y >= 0.1))
         {
             bodySpriteRenderer.flipX = false;
-            print("b obrocenie");
+            //print("b obrocenie");
         }
         else
         {
             bodySpriteRenderer.flipX = true;
-            print("c obrocenie");
+            //print("c obrocenie");
         }
 
     }
