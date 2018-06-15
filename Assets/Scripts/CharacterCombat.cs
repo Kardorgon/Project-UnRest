@@ -4,9 +4,22 @@ using UnityEngine;
 
 [RequireComponent(typeof(CharacterStats))]
 public class CharacterCombat : MonoBehaviour {
-
-    public float attackSpeed = 1f;
+    [SerializeField]
+    private float attackSpeed = 1f;
     private float attackCooldown = 0f;
+    public float AttackCoolDown
+    {
+        get { return attackCooldown; }
+    }
+
+    public float AttackSpeed
+    {
+        get
+        {
+            return attackSpeed;
+        }
+    }
+
     public float attackDelay = .6f;
 
     public event System.Action OnAttack;
@@ -29,24 +42,24 @@ public class CharacterCombat : MonoBehaviour {
         if(attackCooldown <= 0)
         {
             int totalAvailableDamage = myStats.damage.GetValue();
-            print("totalAvailableDamage =" + totalAvailableDamage);
+            //print("totalAvailableDamage =" + totalAvailableDamage);
             int damageDealt = 0;
             for (int i = 1; i <= totalAvailableDamage; i++)
             {
                 int roll = Random.Range(1, 7);
-                print("roll number " + i + "equals " + roll);
+                //print("roll number " + i + "equals " + roll);
                 if(roll >= myStats.hitRollMin)
                 {
                     damageDealt++;
                 }
             }
-            print("total damage dealt = " + damageDealt);
+            //print("total damage dealt = " + damageDealt);
             //targetStats.TakeDamage(damageDealt);
             StartCoroutine(DoDamage(targetStats, attackDelay, damageDealt));
 
             if (OnAttack != null)
                 OnAttack(); 
-            attackCooldown = 1f / attackSpeed;
+            attackCooldown = 1f / AttackSpeed;
         }
         
     }

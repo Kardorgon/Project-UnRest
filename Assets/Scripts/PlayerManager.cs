@@ -11,8 +11,23 @@ public class PlayerManager : MonoBehaviour
     public PlayerStats playerStats;
     #region Singleton
     public static PlayerManager instance;
+    [SerializeField]
+    private int xp = 0;
+    public int XP
+    {
+        get { return xp; }
+        set
+        {
+            xp += value;
+            if(xp < 0)
+            {
+                print("xp cannot go below 0");
+                xp = 0;
+            }
+        }
+    }
 
-    public int currentPotion;
+    //public int currentPotion;
     void Awake()
     {
         if (instance == null)
@@ -63,18 +78,6 @@ public class PlayerManager : MonoBehaviour
             playerStats.currentHealth += potionHealthModifier;
         }
     }
-    //public void DrinkDamagePotion(int potionDamageModifier)
-    //{
-    //    playerStats = player.GetComponent<PlayerStats>();
-    //    if (playerStats.currentHealth + potionHealthModifier > playerStats.maxHealth)
-    //    {
-    //        playerStats.currentHealth = playerStats.maxHealth;
-    //    }
-    //    else
-    //    {
-    //        playerStats.currentHealth += potionHealthModifier;
-    //    }
-    //}
 
     public void KillPlayer()
     {

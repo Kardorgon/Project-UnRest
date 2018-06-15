@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour {
     private bool isFocus = false;
     private bool hasInteracted = false;
     private Transform player;
+    public SpriteRenderer focusSprite;
 
 
     //all object will derive from Interactable class but different objects (chects, coins, enemies) will have different interaction thats why we use virtual to override it.
@@ -34,12 +35,16 @@ public class Interactable : MonoBehaviour {
         isFocus = true;
         player = playerTransform;
         hasInteracted = false;
+        if(focusSprite != null)
+            focusSprite.enabled = true;
     }
     public void OnDefocused()
     {
         isFocus = false;
         player = null;
         hasInteracted = false;
+        if(focusSprite != null)
+            focusSprite.enabled = false;
     }
 
     void OnDrawGizmosSelected()

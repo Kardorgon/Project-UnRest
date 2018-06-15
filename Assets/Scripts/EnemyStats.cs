@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyStats : CharacterStats {
-    public static int enemyMaxHealth;
-    public static int currentEnemyHealth;
 
+    PlayerManager playerManager;
+    public int xpValue;
     public void Start()
     {
-        enemyMaxHealth = maxHealth;
-        currentEnemyHealth = currentHealth;
+        playerManager = PlayerManager.instance;
     }
 
     public override void Die()
@@ -17,7 +16,8 @@ public class EnemyStats : CharacterStats {
         base.Die();
 
         //Add death animation
-
+        //Adds xp value through XP properties set in PlayerManager
+        playerManager.XP = xpValue;
         Destroy(gameObject);
     }
 }

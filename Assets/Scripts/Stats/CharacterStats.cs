@@ -18,13 +18,6 @@ public class CharacterStats : MonoBehaviour {
         currentHealth = maxHealth;
         maxHealthBaseValue = maxHealth;
     }
-    public void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-           
-        }
-    }
     public void TakeDamage(int damage)
     {
         damage -= armor.GetValue();

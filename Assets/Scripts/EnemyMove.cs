@@ -227,7 +227,6 @@ public class EnemyMove : MonoBehaviour {
     public void FaceTarget()
     {
         Vector2 direction = (PlayerManager.instance.player.transform.position - transform.position).normalized;
-        print(direction);
         if(direction.x >= 0.6 && direction.x <= 1 && direction.y >= 0.6 && direction.y <= 0.8)
         {
             bodySpriteRenderer.flipX = true;

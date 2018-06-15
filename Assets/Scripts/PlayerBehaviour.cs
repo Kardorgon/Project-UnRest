@@ -33,45 +33,50 @@ public class PlayerBehaviour : MonoBehaviour {
             boxCollider.enabled = false;
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
-            float distanceFromClickX = (mousePos2D.x - transform.position.x);
-            float distanceFromClickY = (mousePos2D.y - transform.position.y);
-            float distanceFromClickXAbs = Mathf.Abs(distanceFromClickX);
-            float distanceFromClickYAbs = Mathf.Abs(distanceFromClickY);
-            Vector2 direction = Vector2.zero;
-            bool clickedHorizontal = false;
-            if(distanceFromClickXAbs > distanceFromClickYAbs)
-            {
-                clickedHorizontal = true;
-            }
-            else
-            {
-                clickedHorizontal = false;
-            }
-            
-            if (clickedHorizontal)
-            {
-                if(distanceFromClickX > 0)
-                {
-                    direction = Vector2.right;
-                } else
-                {
-                    direction = Vector2.left;
-                }
-            }else if (!clickedHorizontal)
-            {
-                if(distanceFromClickY > 0)
-                {
-                    direction = Vector2.up;
-                }
-                else
-                {
-                    direction = Vector2.down;
-                }
-            }
-            Debug.DrawRay(transform.position, direction, Color.red);
+            print(mousePos2D);
+            //if I want to cast rays only in cross shape
+            #region UsedOnlyForCastingRayWithoutDiagonals
+            //float distanceFromClickX = (mousePos2D.x - transform.position.x);
+            //float distanceFromClickY = (mousePos2D.y - transform.position.y);
+            //float distanceFromClickXAbs = Mathf.Abs(distanceFromClickX);
+            //float distanceFromClickYAbs = Mathf.Abs(distanceFromClickY);
+            //Vector2 direction = Vector2.zero;
+            //bool clickedHorizontal = false;
+            //if(distanceFromClickXAbs > distanceFromClickYAbs)
+            //{
+            //    clickedHorizontal = true;
+            //}
+            //else
+            //{
+            //    clickedHorizontal = false;
+            //}
+
+            //if (clickedHorizontal)
+            //{
+            //    if(distanceFromClickX > 0)
+            //    {
+            //        direction = Vector2.right;
+            //    } else
+            //    {
+            //        direction = Vector2.left;
+            //    }
+            //}else if (!clickedHorizontal)
+            //{
+            //    if(distanceFromClickY > 0)
+            //    {
+            //        direction = Vector2.up;
+            //    }
+            //    else
+            //    {
+            //        direction = Vector2.down;
+            //    }
+            //}
+            #endregion
+            Vector3 rayDirection = mousePos  - transform.position;
+            Debug.DrawRay(transform.position, rayDirection, Color.red);
             //mamy hit wszystkich obiektow ktore nie sa na layer w odleglosci 1 kratki
             //distance = tu dystans jaki bedziemy miec do interakcji z przedmiotem. Zamienic z interractRadius
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, interractRadius, ~layer);
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, rayDirection, interractRadius, ~layer);
 
             if (hit)
             {
@@ -86,7 +91,8 @@ public class PlayerBehaviour : MonoBehaviour {
                 RemoveFocus();
             }
             boxCollider.enabled = true;
-            clickedHorizontal = false;
+            //particleEmitter of the cross ray 
+            //clickedHorizontal = false;
         }
         }
     void SetFocus(Interactable newFocus)
