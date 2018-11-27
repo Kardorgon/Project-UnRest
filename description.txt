@@ -1,0 +1,10 @@
+Project Unrest description:
+Infinite roguelike/DnD type game
+
+walkthrough of current game:
+move using: WSAD
+point and click on the items on the ground and on the enemies to interact
+open inventory using I
+click on an item in the inventory to equip it/consume it
+Attacks are made using dice rolls. Each 3+ roll gives a hit that is countered by Enemies armour. If no.attacks > enemy armor = hit
+
